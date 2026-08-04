@@ -1,37 +1,164 @@
-# Tech-Interview
+# Tech-Interview — CS 면접 스터디
 
-> 기술 면접과 관련하여, 그동안 준비했던, (혹은 스스로 더 공부하고 싶은) 문항들을 정리한 레포입니다.  
-> 다소 면접을 어렵게 준비했기에, 기술 면접을 처음 준비하시는 분들에게는 어려울 수도 있지만, 차근차근 정리하다보면 많은 도움이 될 수 있을 것입니다!
+> [VSFe/Tech-Interview](https://github.com/VSFe/Tech-Interview) 문항을 바탕으로 진행하는 **12주 CS 면접 스터디** 레포입니다.
+> 매주 화요일, 지정된 범위를 각자 공부해 오고 **서로 질문하고 꼬리 질문을 던지는 모의 면접** 형식으로 진행합니다.
 
-- **처음 CS를 준비하시는 분들이라면, 사실 이 레포는 적합하지 않을 수 있습니다. 기본적인 CS에 대한 이해가 있고, 면접을 위해 더 깊은 공부가 필요한 분들에게 적극 권장드립니다!**
-- **레포지토리에 있는 내용이 면접의 전부는 아닙니다! 더 많이 찾아보면 좋을 것 같습니다.**
-- 문제 수가 많고, 난이도도 있는 편 입니다. 어려울 수 있다는 것을 감안하고 공부하셨으면 좋겠습니다!
-- 특정 키워드에 대해, 나올 수 있는 문항들을 다양하게 적었습니다.
-- 적힌 풀이를 외우는 것은 지양하기에, **질문들을 중심으로 정리하였습니다.** 풀이는 직접 공부하면서 채우시는걸 강력히 권장합니다.
-    - 특히나, 해당 레포의 풀이를 다룬 블로그 중에선 틀린 내용을 작성한 경우도 있으니 더더욱 조심해 주세요!
+원본 문항은 `01~07` 문서에 주제별로 그대로 보존되어 있고, `weeks/` 폴더에 이를 **주차별로 재배치한 학습 파일**이 들어 있습니다.
 
-## Contents
+- 총 **대질문 114개** + **손코딩 15문항**
+- 주당 평균 **9~10개 질문 + 손코딩 1~2문항** (Week 11만 12개)
+- 모든 문항이 12주 안에 **중복 없이 정확히 한 번씩** 배정되어 있습니다
 
-- [Data Structure, Algorithm (이론)](https://github.com/VSFe/Tech-Interview/blob/main/01-DATA_STRUCTURE_ALGORITHM.md)
-- [Operating System](https://github.com/VSFe/Tech-Interview/blob/main/02-OPERATING_SYSTEM.md)
-- [Network](https://github.com/VSFe/Tech-Interview/blob/main/03-NETWORK.md)
-- [Database](https://github.com/VSFe/Tech-Interview/blob/main/04-DATABASE.md)
-- [Etc](https://github.com/VSFe/Tech-Interview/blob/main/05-ETC.md)
-- [손코딩 (연습 문항)](https://github.com/VSFe/Tech-Interview/blob/main/06-ALGORITHM.md)
-- [언어/프레임워크 관련 질문 (Java, Spring)](https://github.com/VSFe/Tech-Interview/blob/main/07-JAVA_SPRING.md)
+> 실제 면접 기출과 대조해 원본에 없던 **Spring Boot와 Spring Framework의 차이, 테스트 전략, Java 버전별 변화, Java Collection Framework, 빌드·배포 파이프라인, BCNF** 문항을 각 주제 문서에 보강했습니다.
+
+---
+
+## 스터디 진행 방식
+
+### 매주 사이클
+
+```
+[스터디 전]  각자 주차 파일의 질문을 공부하고 "내 답변" 칸을 채운다
+                          ↓
+[화요일 2h]  모의 면접 — 서로 질문을 던지고, 꼬리 질문으로 파고든다
+                          ↓
+[마무리]     아무도 답 못한 질문은 "미해결 질문"에 기록 → 다음 주에 재도전
+```
+
+### 당일 타임테이블 (2시간 기준)
+
+| 시간 | 내용 |
+|---|---|
+| 0:00 ~ 0:10 | 지난주 미해결 질문 공유, 순서 정하기 |
+| 0:10 ~ 1:20 | **모의 면접** (출제자 로테이션) |
+| 1:20 ~ 1:40 | 손코딩 풀이 비교 |
+| 1:40 ~ 2:00 | 회고, 다음 주 범위 확인 |
+
+### 모의 면접 규칙
+
+- 출제자는 대질문을 던지고, 답변이 끝나면 **꼬리 질문을 최소 2개** 던진다
+- 답변자는 한 질문당 **3분 이내**로 답한다. 모르면 "모릅니다"라고 명확히 말하고 넘어간다
+- 답변 도중 끼어들지 않는다. 보충·정정은 답변이 끝난 뒤에
+- 한 문제가 끝나면 출제자와 답변자를 시계 방향으로 넘긴다
+- 목록에 없는 꼬리 질문도 자유롭게 던진다. **"왜 그런가요?"를 두 번 이상** 파고들 것
+
+> 답을 외워서 말하는 것이 목적이 아닙니다. **꼬리 질문에 무너지지 않는 이해**가 목적입니다.
+
+---
+
+## 12주 로드맵
+
+| 주차 | 주제 | 학습 범위 | 질문 | 손코딩 |
+|:--:|---|---|:--:|:--:|
+| [Week 01](weeks/week-01.md) | 자료구조 기초 | 자료구조 1~8 · 개발상식 1 | 9 | 2 |
+| [Week 02](weeks/week-02.md) | 알고리즘과 그래프 | 자료구조·알고리즘 9~16 · 개발상식 1 | 9 | 2 |
+| [Week 03](weeks/week-03.md) | OS I — 커널과 프로세스 | 운영체제 1~7, 10 · 개발상식 1 | 9 | 1 |
+| [Week 04](weeks/week-04.md) | OS II — 동시성과 동기화 | 운영체제 8, 9, 11~13, 20, 23 · 개발상식 2 | 9 | 1 |
+| [Week 05](weeks/week-05.md) | OS III — 메모리와 파일 시스템 | 운영체제 14~19, 21, 22 · 개발상식 1 | 9 | 1 |
+| [Week 06](weeks/week-06.md) | Network I — HTTP와 웹 | 네트워크 1~6, 16 · 개발상식 2 | 9 | 1 |
+| [Week 07](weeks/week-07.md) | Network II — 전송·네트워크 계층 | 네트워크 7, 10~12, 17, 19, 20 · 개발상식 2 | 9 | 1 |
+| [Week 08](weeks/week-08.md) | Network III — 인터넷 인프라와 보안 | 네트워크 8, 9, 13~15, 18, 21 · 개발상식 3 | 10 | 1 |
+| [Week 09](weeks/week-09.md) | DB I — 모델링과 트랜잭션 | 데이터베이스 1~4, 7, 8, 13 · 개발상식 2 | 9 | 1 |
+| [Week 10](weeks/week-10.md) | DB II — 인덱스와 성능·운영 | 데이터베이스 5, 6, 9~12, 14~16 · 개발상식 1 | 10 | 2 |
+| [Week 11](weeks/week-11.md) | Java 핵심 | Java 1~12 | 12 | 1 |
+| [Week 12](weeks/week-12.md) | Spring 핵심 | Spring 13~21 · 개발상식 1 | 10 | 1 |
+| | | **합계** | **114** | **15** |
+
+### 왜 이렇게 나눴나
+
+- **자료구조 → OS → 네트워크 → DB → 언어/프레임워크** 순서로, 아래 계층부터 쌓아 올립니다
+- 한 주는 **하나의 주제 블록**으로 묶어서, 꼬리 질문이 자연스럽게 이어지도록 했습니다
+- `05-ETC.md`의 개발상식 문항은 성격이 제각각이라 **매주 1~3개씩 곁들이는 코너**로 배치했습니다 (Week 11은 Java 분량이 많아 제외, Week 12는 테스트 문항을 Spring과 묶었습니다)
+- 손코딩은 몰아서 하면 감이 끊기므로 **매주 1~2문항씩** 꾸준히 배치했습니다
+- **인성·자소서 면접은 12주 기술 과정을 완주한 뒤 별도 트랙으로 진행합니다.** 이 12주는 기술 문항에만 집중합니다
+
+---
+
+## 주차 파일 사용법
+
+각 `weeks/week-NN.md` 파일은 이렇게 구성되어 있습니다.
+
+| 구성 | 내용 |
+|---|---|
+| **범위 한눈에 보기** | 이번 주 질문 목록 + 난이도 + 필수/심화 |
+| **모의 면접 체크리스트** | 사전 준비 항목, 당일 타임박스, 진행 규칙 |
+| **Part 1. 메인 주제** | 질문 원문 + 꼬리 질문(접힘) + 답변 작성란 |
+| **Part 2. 개발상식 코너** | 주제와 별개인 공통 질문 |
+| **Part 3. 손코딩** | 구현 문항 + 복잡도 기록란 |
+| **회고** | 미해결 질문, 약점 주제, 참고 자료 |
+
+### 질문 블록 작성 예시
+
+````markdown
+#### 1. 시간복잡도와 공간복잡도에 대해 설명해 주세요.
+
+`★☆☆` · `필수` · 원본 [자료구조·알고리즘 #1](../01-DATA_STRUCTURE_ALGORITHM.md)
+
+<details>
+<summary><b>꼬리 질문 3개 (펼치기)</b></summary>
+...
+</details>
+
+**내 답변**
+
+```
+(여기를 채운다)
+```
+
+**핵심 키워드** → 점근 표기, 상수 항, 최악/평균
+
+**막힌 부분 / 다시 볼 것** → Big-Theta와 Big-O를 구분해서 말하지 못했음
+````
+
+> 꼬리 질문은 일부러 **접어 두었습니다.** 먼저 대질문만 보고 "어떤 꼬리 질문이 나올까"를 스스로 예상해 본 뒤 펼쳐 보세요.
+
+### 표기 규칙
+
+| 표기 | 의미 |
+|---|---|
+| `★☆☆` | 개념 정의 위주. 막힘 없이 답할 수 있어야 함 |
+| `★★☆` | 비교·트레이드오프까지 요구. 면접 단골 |
+| `★★★` | 내부 동작이나 증명까지 파고드는 질문 |
+| `필수` | 반드시 소화할 것 |
+| `심화` | 시간이 부족하면 다음 주로 미뤄도 되는 질문 |
+
+---
+
+## 원본 주제별 문서
+
+주차 파일은 아래 문서에서 문항을 가져온 것입니다. 특정 주제를 통으로 훑고 싶을 때 참고하세요.
+
+- [01. Data Structure, Algorithm (이론)](01-DATA_STRUCTURE_ALGORITHM.md) — 16문항
+- [02. Operating System](02-OPERATING_SYSTEM.md) — 23문항
+- [03. Network](03-NETWORK.md) — 21문항
+- [04. Database](04-DATABASE.md) — 16문항
+- [05. Etc (개발상식, 기타)](05-ETC.md) — 17문항
+- [06. 손코딩 (연습 문항)](06-ALGORITHM.md) — 15문항
+- [07. 언어/프레임워크 (Java, Spring)](07-JAVA_SPRING.md) — 21문항
+
+---
+
+## 원본 레포 안내
+
+- 문제 수가 많고 난이도가 있는 편입니다. 기본적인 CS 이해가 있는 상태에서 시작하는 것을 권장합니다.
+- **레포지토리에 있는 내용이 면접의 전부는 아닙니다.** 더 많이 찾아보면 좋습니다.
+- 적힌 풀이를 외우는 것은 지양하기에 **질문 중심으로 정리**되어 있습니다. 풀이는 직접 공부하면서 채우세요.
+  - 이 레포의 풀이를 다룬 블로그 중 **틀린 내용**을 작성한 경우도 있으니 조심해 주세요.
 
 ## Special Thanks
-- 함께 스터디를 진행했던, 고마운 분들입니다.  
-[BaeRoNuI](https://github.com/BaeRoNuI)  
-[JongWoo Jeong](https://github.com/knight7024)  
-[Namkanghyeon](https://github.com/Namkanghyeon)  
-[Jeong Seokwoo (redjen)](https://github.com/redjen8)  
+
+원본 레포에서 함께 스터디를 진행했던 분들입니다.
+
+[BaeRoNuI](https://github.com/BaeRoNuI) ·
+[JongWoo Jeong](https://github.com/knight7024) ·
+[Namkanghyeon](https://github.com/Namkanghyeon) ·
+[Jeong Seokwoo (redjen)](https://github.com/redjen8) ·
 [Hi YJ](https://github.com/0general)
 
+좋은 결과를 냈던 새로운 분들도 함께합니다.
 
-+ 좋은 결과를 냈던 새로운 분들도 함께합니다.  
-[sojeongLee](https://github.com/sojeongLee0125)  
-[DongRyul Lee](https://github.com/Al7ech)  
-[Junhyuk Lee](https://github.com/sinclairr08)  
-[Hoin Shin](https://github.com/signalman)  
+[sojeongLee](https://github.com/sojeongLee0125) ·
+[DongRyul Lee](https://github.com/Al7ech) ·
+[Junhyuk Lee](https://github.com/sinclairr08) ·
+[Hoin Shin](https://github.com/signalman) ·
 [PangPyo](https://github.com/Pangpyo)
