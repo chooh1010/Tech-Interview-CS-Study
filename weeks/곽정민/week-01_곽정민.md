@@ -654,6 +654,7 @@ Stable 하지 않습니다. 루트와 마지막 원소를 교환한 뒤 Sift-dow
 **내 답변**
 
 ```
+여기부분은 모르는 부분....
 BBST(Balanced Binary Search Tree)는 일반 BST의 "편향 문제"를 해결하기 위해, 삽입·삭제가 일어날 때마다
 스스로 구조를 재조정해서 트리의 높이를 항상 O(log n)으로 유지하는 이진탐색트리입니다.
 
@@ -845,7 +846,7 @@ Radix Sort(기수 정렬)는 값끼리 직접 비교하지 않고, 자릿수(dig
 - 본인이 사용하고 있는 언어에선, 어떤 정렬 알고리즘을 사용하여 정렬 함수를 제공하고 있을까요?
 ```
 (사용 언어에 맞게 채워 넣기)
-예) Java: Arrays.sort()는 원시 타입(int[] 등)에는 Dual-Pivot Quicksort를 사용합니다(Stable 여부가
+예) Java: Arrays.sort()는 원시 타입(int[] 등)에6는 Dual-Pivot Quicksort를 사용합니다(Stable 여부가
     중요하지 않고 성능이 우선이라 Unstable해도 무방). 반면 객체 배열(Object[])이나 Collections.sort()는
     Stable 정렬이 보장되어야 하므로 TimSort(Merge Sort와 Insertion Sort를 결합한 하이브리드 알고리즘,
     이미 정렬된 구간을 찾아 활용)를 사용합니다.
