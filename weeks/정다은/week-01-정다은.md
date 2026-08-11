@@ -1820,7 +1820,46 @@ get(index) {
 #### 15. 스택 두개로 큐를, 큐 두개로 스택을 구현하는 코드를 작성해 보세요.
 
 ```
+stack1
+stack2
 
+append(stack1) {
+  stack1.push()
+}
+
+poll(stack1, stack2) {
+  for (stack1의 개수만큼) {
+    stack2.push(stack1.pop())
+  }
+  stack2.pop()
+  for (stack2의 개수만큼) {
+    stack1.push(stack2.pop())
+  }
+}
+
+append
+poll
+
+
+queue1
+queue2
+
+push(queue1) {
+  queueu1.append()
+}
+
+pop(queue1, queue2) {
+  for (queue1의 개수만큼) {
+    queue2.append(queue1.poll())
+  }
+  queue2.poll()
+  for (queue2의 개수만큼) {
+    queue1.append(queue2.poll())
+  }
+}
+
+push
+pop
 ```
 
 **시간복잡도** →  **공간복잡도** →
