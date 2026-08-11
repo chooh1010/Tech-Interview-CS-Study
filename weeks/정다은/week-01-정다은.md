@@ -1747,7 +1747,64 @@ OOP 는 알고리즘이 아니므로 '입력 크기 n'은 일반적으로 객체
 **구현 범위** — 단일 연결 리스트의 `add(index, e)` · `remove(index)` · `get(index)`. 이중 연결 리스트로 확장하면 무엇이 달라지는지도 함께 정리
 
 ```
+struct NODE {
+  int data;
+  int* next;
+}
 
+struct NODE *head = malloc(sizeof(struct NODE));
+struct NODE *tail = malloc(sizeof(struct NODE));
+
+struct NODE *node1 = malloc(sizeof(struct NODE));
+head->next = node1;
+node1->data = 10;
+
+struct NODE *node2 = malloc(sizeof(struct NODE));
+node1->next = node2;
+node2->data = 20;
+
+struct NODE *node3 = malloc(sizeof(struct NODE));
+node2->next = node3;
+node3->data = 30;
+
+# e가 데이터
+add(index, e) {
+    int *cur = head;
+    struct NODE *node = malloc(sizeof(struct NODE));
+    if (index==0) {
+      node->next = head;
+      node->data = e;
+      head->next = node;
+    } else {
+      for (int i=0;i<index-1;i++) {
+      cur = cur->next;
+      node->next = cur->next;
+      node->data = e;
+      cur->next = node;
+      }
+    }
+}
+
+remove(index) {
+  int *cur = head;
+  if (index==0) {
+    head = head->next;
+  } else {
+    for (int i=0;i<index-1;i++) {
+      cur = cur->next;
+    }
+    cur->next = cur->next->next;
+  }
+}
+
+
+get(index) {
+  int *cur = head;
+  for (int i=0;i<index;i++) {
+    cur = cur->next;
+  }
+  return cur->data;
+}
 ```
 
 **시간복잡도** →  **공간복잡도** →
