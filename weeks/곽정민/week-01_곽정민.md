@@ -305,7 +305,7 @@ C++의 std::deque는 하나의 연속된 배열이 아니라, 고정 크기의 �
 완전히 연속된 메모리가 아니라서 순수 배열보다는 캐시 지역성이 약간 떨어집니다.
 ```
 
-**핵심 키워드** →
+**핵심 키워드** → LIFO(스택)·FIFO(큐), 스택 2개로 큐 구현(dequeue 상각 O(1)) / 큐 2개로 스택 구현(한쪽은 O(n)), 원형 버퍼(Circular Buffer)로 배열 기반 큐 O(1) 구현, Infix·Prefix·Postfix와 후위표기 스택 계산, Deque(배열 원형버퍼 vs 이중연결리스트 구현), C++ std::deque의 청크(chunk)·맵(map) 구조로 Random Access O(1)
 
 **막힌 부분 / 다시 볼 것** →  Deque의 Random Access 시간복잡도는 O(1) 입니다. 이게 어떻게 가능한걸까요? 설명을 못해서 ai보고 공부, 
 
@@ -447,7 +447,7 @@ Load Factor가 높아질수록 충돌 확률이 커지고, Separate Chaining의 
 원자적 연산(CAS)으로 처리"하는 것이 성능 저하를 최소화하는 핵심 전략입니다.
 ```
 
-**핵심 키워드** →
+**핵심 키워드** → 해시 함수(결정성·균등분포·눈사태효과), 충돌 처리: Separate Chaining vs Open Addressing(Linear/Quadratic/Double Hashing), Load Factor·리사이징(rehashing)과 상각 O(1), 언어별 구현(Java HashMap 체이닝+트리화, Python dict open addressing, C++ unordered_map 체이닝), 동시성 문제와 해결(Lock Striping, CAS 기반 lock-free, Java 8 ConcurrentHashMap)
 
 **막힌 부분 / 다시 볼 것** →
 
@@ -555,7 +555,7 @@ BBST(AVL Tree, Red-Black Tree 등)가 등장했습니다.
 문자열 검색에 특화된 전혀 다른 자료구조입니다.
 ```
 
-**핵심 키워드** →
+**핵심 키워드** → 트리 vs 그래프(사이클 없음·N-1개 간선), 이진트리 vs 이진탐색트리(왼쪽<루트<오른쪽), 중위 순회(In-order)로 정렬된 결과 획득, 탐색·삽입·삭제 평균 O(log n)/최악 O(n)(편향 시), 삭제 3가지 경우(리프·자식1개·자식2개), 정렬된 순서 삽입 시 편향(링크드 리스트화), 삼진탐색트리의 비실용성 vs Ternary Search Tree(TST, 문자열 특화 별개 구조)
 
 **막힌 부분 / 다시 볼 것** →
 
@@ -632,7 +632,7 @@ Stable 하지 않습니다. 루트와 마지막 원소를 교환한 뒤 Sift-dow
 위치가 멀리 떨어진 상태로 교환이 일어날 수 있어 원래의 상대적 순서가 보장되지 않습니다.
 ```
 
-**핵심 키워드** →
+**핵심 키워드** → 완전이진트리(Complete Binary Tree)와 힙 속성(최대힙/최소힙), 배열 기반 구현(2i+1·2i+2·(i-1)/2), Sift-up(삽입)/Sift-down(삭제) O(log n), 삽입 위치가 값 크기와 무관 → 형태(shape) 고정으로 편향 없음(BST와 대비), 힙 정렬 O(n log n)·Unstable, 우선순위 큐(Priority Queue) 구현체
 
 **막힌 부분 / 다시 볼 것** →
 
@@ -710,7 +710,7 @@ BBST(Balanced Binary Search Tree)는 일반 BST의 "편향 문제"를 해결하�
 Linux 커널의 프로세스 스케줄러 등)에서 Red-Black Tree가 널리 채택되었습니다.
 ```
 
-**핵심 키워드** →
+**핵심 키워드** → BBST는 회전(Rotation)으로 높이 O(log n) 유지, AVL Tree(엄격한 균형·조회 우세) vs Red-Black Tree(느슨한 균형·삽입삭제 우세), RBT 4가지 성질(빨강/검정, 루트는 검정, No Red-Red, 모든 경로 Black Height 동일), 2-3-4 Tree와 RBT의 동형(isomorphic) 관계, 삽입 시 재색칠·삭제 시 회전+재색칠 O(log n)
 
 **막힌 부분 / 다시 볼 것** →
 
@@ -875,7 +875,7 @@ Radix Sort(기수 정렬)는 값끼리 직접 비교하지 않고, 자릿수(dig
 에서 사용되는 방식과 동일한 원리입니다.
 ```
 
-**핵심 키워드** →
+**핵심 키워드** → 비교 기반 정렬 하한 O(n log n) vs 비교 없는 정렬(Counting/Radix/Bucket Sort), Quick Sort(평균 O(n log n)·최악 O(n²)·Unstable) vs Merge Sort(항상 O(n log n)·Stable), Pivot 개선(랜덤·median-of-three)과 Introsort, Stable Sort 개념과 Stable/Unstable 알고리즘 분류, Adaptive(Insertion·Bubble) vs Non-adaptive(Selection), Bottom-up Merge Sort(반복문 기반), Radix Sort O(d×(n+k)), 언어별 정렬(TimSort, Introsort), 외부 정렬(External Sort)과 K-way Merge
 
 **막힌 부분 / 다시 볼 것** →
 
@@ -1027,7 +1027,7 @@ Radix Sort(기수 정렬)는 값끼리 직접 비교하지 않고, 자릿수(dig
 자동으로 보장하지 않습니다.
 ```
 
-**핵심 키워드** →
+**핵심 키워드** → 캡슐화·상속·다형성·추상화(OOP 4대 특성), SOLID 원칙(SRP·OCP·LSP·ISP·DIP), 정적 다형성(오버로딩·컴파일타임) vs 동적 다형성(오버라이딩·런타임), 상속(is-a)의 이점과 단점(Fragile Base Class), 합성(Composition, has-a)이 상속보다 유연한 이유, 캡슐화 vs 정보은닉의 차이, 클래스 유무와 OOP는 별개 개념(프로토타입 기반·구조적 타이핑)
 
 **막힌 부분 / 다시 볼 것** →
 
