@@ -334,6 +334,9 @@ head → A → B → C → null
 링크드리스트의 메모리 구조와 캐시 지역성에 대한 내용은 [Cornell University 강의 자료](https://www.cs.cornell.edu/courses/cs312/2007sp/lectures/lec24.html)에서 확인할 수 있습니다.
 
 **막힌 부분 / 다시 볼 것** →
+캐시 지역성이 안좋은 이유
+분할상환 amortized
+skip list가 있으면 시간 복잡도가 달라짐 (redis jetset)이 이렇게 구현됨
 
 ---
 
@@ -431,6 +434,7 @@ head → A → B → C → null
 **핵심 키워드** →
 
 **막힌 부분 / 다시 볼 것** →
+ArrayDequeue
 
 ---
 
@@ -533,6 +537,9 @@ load factor α = 저장된 원소 수 n / 버킷 수 m
 **핵심 키워드** →
 
 **막힌 부분 / 다시 볼 것** →
+Double Hashing을 많이 사용하는 이유
+Hash Table은 멀티 스레드 환경에서 심각한 수준의 레이스 컨디션 문제에 빠질 수 있다.
+
 
 ---
 
@@ -1003,6 +1010,7 @@ Min Heap에 `5`를 삽입하는 경우:
 **핵심 키워드** →
 
 **막힌 부분 / 다시 볼 것** →
+stable 하냐 라는 의미 
 
 ---
 
@@ -1739,7 +1747,64 @@ OOP 는 알고리즘이 아니므로 '입력 크기 n'은 일반적으로 객체
 **구현 범위** — 단일 연결 리스트의 `add(index, e)` · `remove(index)` · `get(index)`. 이중 연결 리스트로 확장하면 무엇이 달라지는지도 함께 정리
 
 ```
+struct NODE {
+  int data;
+  int* next;
+}
 
+struct NODE *head = malloc(sizeof(struct NODE));
+struct NODE *tail = malloc(sizeof(struct NODE));
+
+struct NODE *node1 = malloc(sizeof(struct NODE));
+head->next = node1;
+node1->data = 10;
+
+struct NODE *node2 = malloc(sizeof(struct NODE));
+node1->next = node2;
+node2->data = 20;
+
+struct NODE *node3 = malloc(sizeof(struct NODE));
+node2->next = node3;
+node3->data = 30;
+
+# e가 데이터
+add(index, e) {
+    int *cur = head;
+    struct NODE *node = malloc(sizeof(struct NODE));
+    if (index==0) {
+      node->next = head;
+      node->data = e;
+      head->next = node;
+    } else {
+      for (int i=0;i<index-1;i++) {
+      cur = cur->next;
+      node->next = cur->next;
+      node->data = e;
+      cur->next = node;
+      }
+    }
+}
+
+remove(index) {
+  int *cur = head;
+  if (index==0) {
+    head = head->next;
+  } else {
+    for (int i=0;i<index-1;i++) {
+      cur = cur->next;
+    }
+    cur->next = cur->next->next;
+  }
+}
+
+
+get(index) {
+  int *cur = head;
+  for (int i=0;i<index;i++) {
+    cur = cur->next;
+  }
+  return cur->data;
+}
 ```
 
 **시간복잡도** →  **공간복잡도** →
@@ -1755,7 +1820,46 @@ OOP 는 알고리즘이 아니므로 '입력 크기 n'은 일반적으로 객체
 #### 15. 스택 두개로 큐를, 큐 두개로 스택을 구현하는 코드를 작성해 보세요.
 
 ```
+stack1
+stack2
 
+append(stack1) {
+  stack1.push()
+}
+
+poll(stack1, stack2) {
+  for (stack1의 개수만큼) {
+    stack2.push(stack1.pop())
+  }
+  stack2.pop()
+  for (stack2의 개수만큼) {
+    stack1.push(stack2.pop())
+  }
+}
+
+append
+poll
+
+
+queue1
+queue2
+
+push(queue1) {
+  queueu1.append()
+}
+
+pop(queue1, queue2) {
+  for (queue1의 개수만큼) {
+    queue2.append(queue1.poll())
+  }
+  queue2.poll()
+  for (queue2의 개수만큼) {
+    queue1.append(queue2.poll())
+  }
+}
+
+push
+pop
 ```
 
 **시간복잡도** →  **공간복잡도** →

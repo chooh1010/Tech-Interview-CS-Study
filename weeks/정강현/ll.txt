@@ -1,0 +1,62 @@
+class Node <T>{
+	int data;
+	Node next;
+	
+	Node(int data){
+		this.data = data;
+		this.next = null;
+	}
+}
+class SinglyLinkedList<T>{
+	private Node<T> head;
+	private int size;
+	
+	public SinglyLinkedList() {
+		head = null;
+		size = 0;
+	}
+	void add(int index, T value){
+		Node newNode = new Node(data);
+		if  (head == null) {
+			head = newNode;
+		} else {
+			Node current = head;
+			while (current.next != null) {
+				current = current.next;
+			}
+		current.next = newNode;
+		}
+		size++;		
+	}
+	void remove(int index){
+		if (index < 0 || index >= size) {
+			throw new IndexOutOfBountException("잘못된 인덱스");
+		}
+		Node removed;
+		if (index == 0) {
+			removed = head;
+			head = head.next;
+		} else {
+			Node prev = getNode(index -1);
+			removed = prev.next;
+			prev.next = removed.next;
+		}
+		size --;
+	}
+
+	T get(int index) {
+		return getNode(index).data;
+	}
+
+	private Node getNode(int index) {
+		if (index < 0 || index >= size) {
+			throw new IndexOutOfBoundException("잘못된 인덱스");
+		}
+		Node current = head;
+		for (int i = 0; i < index; i++){
+			current = current.next;
+		}
+		return current;
+		
+	}
+}

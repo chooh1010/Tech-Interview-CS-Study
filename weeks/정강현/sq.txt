@@ -1,0 +1,37 @@
+class MyQueue<T> {
+	private Stack<T> S1 = new Stack<>();
+	private Stack<T> S2 = new Stack<>();
+	
+	void enqueue(T x) {
+		S1.push(x);
+	}
+	
+	T dequeue() {
+		if(S2.isEmpty()) {
+			while (S1.isEmpty()) {
+				S2.push(S1.pop());
+			}
+		}
+		return S2.pop();
+	}
+}
+
+
+class MyStack<T> {
+	private Queue<T> q1 = new ArrayDeque <>();
+	private Queue<T> q2 = new ArrayDeque <>();
+
+	void push(T x) {
+		q2.offer (x);
+		while (!q1.isEmpty()) {
+			q2.offer(q1.poll());
+		}
+	Queue <T> temp = q1;
+	q1 = q2;
+	q2 = temp;
+	}
+	
+	T pop() {
+		return q1.poll();
+	}
+}
