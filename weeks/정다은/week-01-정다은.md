@@ -334,6 +334,9 @@ head → A → B → C → null
 링크드리스트의 메모리 구조와 캐시 지역성에 대한 내용은 [Cornell University 강의 자료](https://www.cs.cornell.edu/courses/cs312/2007sp/lectures/lec24.html)에서 확인할 수 있습니다.
 
 **막힌 부분 / 다시 볼 것** →
+캐시 지역성이 안좋은 이유
+분할상환 amortized
+skip list가 있으면 시간 복잡도가 달라짐 (redis jetset)이 이렇게 구현됨
 
 ---
 
@@ -431,6 +434,7 @@ head → A → B → C → null
 **핵심 키워드** →
 
 **막힌 부분 / 다시 볼 것** →
+ArrayDequeue
 
 ---
 
@@ -533,6 +537,9 @@ load factor α = 저장된 원소 수 n / 버킷 수 m
 **핵심 키워드** →
 
 **막힌 부분 / 다시 볼 것** →
+Double Hashing을 많이 사용하는 이유
+Hash Table은 멀티 스레드 환경에서 심각한 수준의 레이스 컨디션 문제에 빠질 수 있다.
+
 
 ---
 
@@ -1003,6 +1010,7 @@ Min Heap에 `5`를 삽입하는 경우:
 **핵심 키워드** →
 
 **막힌 부분 / 다시 볼 것** →
+stable 하냐 라는 의미 
 
 ---
 
