@@ -1,0 +1,20 @@
+
+class MyQueue<T> {
+    private Stack<T> inStack = new Stack<>();
+    private Stack<T> outStack = new Stack<>();
+
+    void enqueue(T x) {
+        inStack.push(x);
+    }
+
+    T dequeue() {
+        if (outStack.isEmpty()) {
+            while (!inStack.isEmpty()) {
+                outStack.push(inStack.pop());
+            }
+        }
+        return outStack.pop();
+    }
+}
+
+
